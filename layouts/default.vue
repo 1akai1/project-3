@@ -2,7 +2,7 @@
     <div class="root">
         <DNavBar :nav="nav" />
         <DTagBar :tag="tag" />
-        <NuxtPage :contentSection="contentSection" :mainSection="mainSection"/>
+        <NuxtPage class="wrap content" :contentSection="contentSection" :mainSection="mainSection"/>
         <DFooter />
     </div>
 </template>

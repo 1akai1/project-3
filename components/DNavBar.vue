@@ -19,7 +19,7 @@
                     {{navMenu}}
                 </nuxt-link>
             </div>
-            <nuxt-link class="d-nav__in" to="in" >войти</nuxt-link>
+            <nuxt-link class="d-nav__in" to="login" >войти</nuxt-link>
         </div>
     </header>
 </template>
