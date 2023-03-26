@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="content">
         <DMainCard :mainSection="mainSection" />
         <DContentCard :contentSection="contentSection" />
     </div>
@@ -12,6 +12,6 @@
     })
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 
 </style>

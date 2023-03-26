@@ -21,7 +21,6 @@
         display: flex
         flex-direction: row
         gap: 20px
-        padding: 5px 20px
         color: #fff
 // .content
 //     max-width: 1640px

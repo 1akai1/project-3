@@ -33,7 +33,6 @@
     &__content
         display: flex
         flex-direction: row
-        padding: 5px 20px
     &__item
         display: flex
         flex-direction: row
