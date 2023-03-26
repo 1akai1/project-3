@@ -5,8 +5,8 @@
                 {{contentBox?.name}} ->
             </nuxt-link>
             <div class="d-content-card__box">
-                <article v-for="itemCard, index in contentBox?.articles" :key="index">
-                    <div class="d-content-card__card">
+                <article class="d-content-card__card" v-for="itemCard, index in contentBox?.articles" :key="index">
+                    <div class="d-content-card__card-box">
                         <div class="d-content-card__image" :style="`background-image: url(${itemCard?.image?.url});`" />
                         <div class="d-content-card__articles">
                             <p class="d-content-card__title-articles">{{itemCard?.title}}</p>
@@ -36,6 +36,19 @@
             flex-wrap: wrap
             gap: 20px
         &__card
+            position: relative
+            &::after
+                content: ''
+                height: 100%
+                width: 100%
+                position: absolute
+                bottom: 0
+            &:hover
+                &::after
+                    -webkit-box-shadow: 0px -7px 0px -5px rgba(255, 0, 0, 1) inset
+                    -moz-box-shadow: 0px -7px 0px -5px rgba(255, 0, 0, 1) inset
+                    box-shadow: 0px -7px 0px -5px rgba(255, 0, 0, 1) inset
+            &-box
             min-width: 250px
             max-width: 250px
             height: 300px
@@ -44,11 +57,15 @@
             -webkit-box-shadow: 0px 0px 20px -7px rgba(22, 28, 32, 0.57)
             -moz-box-shadow: 0px 0px 20px -7px rgba(22, 28, 32, 0.57)
             box-shadow: 0px 0px 20px -7px rgba(22, 28, 32, 0.57)
+            overflow: hidden
+            &:hover .d-content-card__image
+                height: 100px
         &__image
             width: 250px
             height: 145px
-            background-position: center
+            background-position: 50%
             background-size: cover
+            transition: .2s ease-in-out
         &__articles
             padding: 5px 10px
             font-size: 1rem
