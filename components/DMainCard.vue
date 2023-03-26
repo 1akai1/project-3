@@ -3,6 +3,7 @@
         <div class="content">
             <div class="d-main-card__content">
                 <div class="d-main-card__card"  v-for="card, index in mainSection" :key="index">
+                    <!-- Поправить линк и добавить страницу с инфо -->
                     <nuxt-link :to="card?.category?.name" class="d-main-card__image none d-main-card__hover"  :class="`id-${card?.category?.id}`" :style="`background-image: url(${card?.image?.url});`">
                         <div class="d-main-card__articles">
                             <p>{{card?.category?.name}}</p>
@@ -22,7 +23,6 @@
 </script>
 <style lang="sass" scoped>
     .d-main-card
-        padding-top: 20px
         &__content
             display: grid
             grid-template-columns: repeat(4, 1fr) 

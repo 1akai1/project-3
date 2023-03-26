@@ -72,8 +72,8 @@
             background-color: #fff
             height: 100%
         &__text
-            font-size: .9rem
-            font-family: OpenSans,Arial,sans-serif
-            font-weight: 200
-            text-decoration: none
+            font-size: .9rem !important
+            font-family: OpenSans,Arial,sans-serif 
+            font-weight: 200 !important
+            text-decoration: none !important
 </style>
