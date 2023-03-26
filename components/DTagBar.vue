@@ -18,6 +18,8 @@
 .d-tag-bar
     background-color: #000
     &__text
+        padding-top: 5px
+        padding-bottom: 5px
         display: flex
         flex-direction: row
         gap: 20px

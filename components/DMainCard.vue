@@ -1,14 +1,16 @@
 <template>
-    <main class="d-main-card content">
-        <div class="d-main-card__content">
-            <div class="d-main-card__card"  v-for="card, index in mainSection" :key="index">
-                <nuxt-link :to="card?.category?.name" class="d-main-card__image"  :class="`id-${card?.category?.id}`" :style="`background-image: url(${card?.image?.url});`">
-                    <div class="d-main-card__articles">
-                        <p>{{card?.category?.name}}</p>
-                        <time>{{new Date(card?.updated_at).toLocaleString('ru', {day:'numeric', month:'long', year:'numeric'})}}</time>
-                    </div>
-                    <div class="d-main-card__title">{{card?.title}}</div>
-                </nuxt-link>
+    <main class="d-main-card">
+        <div class="content">
+            <div class="d-main-card__content">
+                <div class="d-main-card__card"  v-for="card, index in mainSection" :key="index">
+                    <nuxt-link :to="card?.category?.name" class="d-main-card__image none d-main-card__hover"  :class="`id-${card?.category?.id}`" :style="`background-image: url(${card?.image?.url});`">
+                        <div class="d-main-card__articles">
+                            <p>{{card?.category?.name}}</p>
+                            <time>{{new Date(card?.updated_at).toLocaleString('ru', {day:'numeric', month:'long', year:'numeric'})}}</time>
+                        </div>
+                        <div class="d-main-card__title hover">{{card?.title}}</div>
+                    </nuxt-link>
+                </div>
             </div>
         </div>
     </main>
@@ -26,6 +28,7 @@
             grid-template-columns: repeat(4, 1fr) 
             height: 500px
             gap: 3px
+
         &__card
             overflow: hidden
         &__image
@@ -46,12 +49,15 @@
             -webkit-box-shadow: 0px 0px 20px -7px rgba(22, 28, 32, 0.57)
             -moz-box-shadow: 0px 0px 20px -7px rgba(22, 28, 32, 0.57)
             box-shadow: 0px 0px 20px -7px rgba(22, 28, 32, 0.57)
-            &:hover
+            &:hover 
                 &::before
                     transform: scale(1.2)
                     box-shadow: -5px -200px 170px -56px rgba(241,50,77,1) inset
                     -webkit-box-shadow: -5px -200px 170px -56px rgba(241,50,77,1) inset
                     -moz-box-shadow: -5px -200px 170px -56px rgba(241,50,77,1) inset
+            &:hover .hover
+                transform: translate(0, -60%)
+
             &::before
                 content: ''
                 position: absolute
@@ -73,6 +79,11 @@
         &__title
             padding: 15px
             position: relative
+            transition: .2s ease-in-out
+            -moz-transition: .2s ease-in-out
+            -ms-transition: .2s ease-in-out
+            -o-transition: .2s ease-in-out
+            -webkit-transition: .2s ease-in-out
     .id-1
         &::before
             transition: .2s ease-in-out

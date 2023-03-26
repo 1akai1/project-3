@@ -1,7 +1,9 @@
 <template>
-    <div class="content">
-        <DMainCard :mainSection="mainSection" />
-        <DContentCard :contentSection="contentSection" />
+    <div>
+        <div class="content">
+            <DMainCard :mainSection="mainSection" />
+            <DContentCard :contentSection="contentSection" />
+        </div>
     </div>
 </template>
 

@@ -1,12 +1,12 @@
 <template>
     <div class="d-content-card content">
         <div class="d-content-card__content" v-for="contentBox in contentSection" :key="contentBox">
-            <h1 class="d-content-card__title">
-                {{contentBox?.name}}
-            </h1>
+            <nuxt-link :to='contentBox?.name' class="d-content-card__title none">
+                {{contentBox?.name}} ->
+            </nuxt-link>
             <div class="d-content-card__box">
                 <article v-for="itemCard, index in contentBox?.articles" :key="index">
-                    <div class="d-content-card__card"  v-if="index < limit">
+                    <div class="d-content-card__card">
                         <div class="d-content-card__image" :style="`background-image: url(${itemCard?.image?.url});`" />
                         <div class="d-content-card__articles">
                             <p class="d-content-card__title-articles">{{itemCard?.title}}</p>
@@ -21,10 +21,6 @@
 <script setup>
     const props = defineProps({
         contentSection: Array,
-        limit: {
-            type: Number,
-            default: 6
-        }
     })
 </script>
 <style lang="sass" scoped>
