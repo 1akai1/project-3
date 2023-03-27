@@ -16,8 +16,8 @@
                     </svg>
                 </nuxt-link>
                 <div class="d-nav__item">
-                    <nuxt-link class="none" :class="`q-nav__image-${index}`" :to="navMenu" v-for="navMenu, index in nav" :key="navMenu">
-                        {{navMenu}}
+                    <nuxt-link class="none" :class="`q-nav__image-${index}`" :to="navMenu.url" v-for="navMenu, index in nav" :key="navMenu">
+                        {{navMenu?.name}}
                     </nuxt-link>
                 </div>
                 <nuxt-link class="d-nav__in none" to="login" >войти</nuxt-link>
@@ -29,6 +29,7 @@
     const props = defineProps({
         nav: Array
     })
+    // console.log(props.nav)
 </script>
 <style lang="sass" scoped>
 .d-nav

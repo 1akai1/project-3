@@ -1,7 +1,7 @@
 <template>
     <div class="d-content-card content">
         <div class="d-content-card__content" v-for="contentBox in contentSection" :key="contentBox">
-            <nuxt-link :to='contentBox?.name' class="d-content-card__title none">
+            <nuxt-link :to='contentBox?.url' class="d-content-card__title none">
                 {{contentBox?.name}} ->
             </nuxt-link>
             <div class="d-content-card__box">
@@ -22,6 +22,8 @@
     const props = defineProps({
         contentSection: Array,
     })
+        // console.log(props.contentSection)
+
 </script>
 <style lang="sass" scoped>
     .d-content-card
@@ -49,15 +51,15 @@
                     -moz-box-shadow: 0px -7px 0px -5px rgba(255, 0, 0, 1) inset
                     box-shadow: 0px -7px 0px -5px rgba(255, 0, 0, 1) inset
             &-box
-            min-width: 250px
-            max-width: 250px
-            height: 300px
-            overflow: hidden
-            border-radius: 5px
-            -webkit-box-shadow: 0px 0px 20px -7px rgba(22, 28, 32, 0.57)
-            -moz-box-shadow: 0px 0px 20px -7px rgba(22, 28, 32, 0.57)
-            box-shadow: 0px 0px 20px -7px rgba(22, 28, 32, 0.57)
-            overflow: hidden
+                min-width: 250px
+                max-width: 250px
+                height: 300px
+                overflow: hidden
+                border-radius: 5px
+                -webkit-box-shadow: 0px 0px 20px -7px rgba(22, 28, 32, 0.57)
+                -moz-box-shadow: 0px 0px 20px -7px rgba(22, 28, 32, 0.57)
+                box-shadow: 0px 0px 20px -7px rgba(22, 28, 32, 0.57)
+                overflow: hidden
             &:hover .d-content-card__image
                 height: 100px
         &__image

@@ -4,7 +4,7 @@
             <div class="d-main-card__content">
                 <div class="d-main-card__card"  v-for="card, index in mainSection" :key="index">
                     <!-- Поправить линк и добавить страницу с инфо -->
-                    <nuxt-link :to="card?.category?.name" class="d-main-card__image none d-main-card__hover"  :class="`id-${card?.category?.id}`" :style="`background-image: url(${card?.image?.url});`">
+                    <nuxt-link :to="`post/${String(card?.url)}`" class="d-main-card__image none d-main-card__hover"  :class="`id-${card?.category?.id}`" :style="`background-image: url(${card?.image?.url});`">
                         <div class="d-main-card__articles">
                             <p>{{card?.category?.name}}</p>
                             <time>{{new Date(card?.updated_at).toLocaleString('ru', {day:'numeric', month:'long', year:'numeric'})}}</time>
@@ -20,6 +20,7 @@
     const props = defineProps({
         mainSection: Array
     })
+    // console.log(props.mainSection)
 </script>
 <style lang="sass" scoped>
     .d-main-card
