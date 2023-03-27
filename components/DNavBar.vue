@@ -16,11 +16,19 @@
                     </svg>
                 </nuxt-link>
                 <div class="d-nav__item">
-                    <nuxt-link class="none" :class="`q-nav__image-${index}`" :to="navMenu.url" v-for="navMenu, index in nav" :key="navMenu">
+                    <nuxt-link 
+                    class="none" 
+                    :class="`q-nav__image-${index}`" 
+                    :to="navMenu.url" 
+                    v-for="navMenu, index in nav" :key="navMenu">
                         {{navMenu?.name}}
                     </nuxt-link>
                 </div>
-                <nuxt-link class="d-nav__in none" to="login" >войти</nuxt-link>
+                <nuxt-link 
+                class="d-nav__in none" 
+                to="login" >
+                    <p>войти</p>
+                </nuxt-link>
             </div>
         </div>
     </header>

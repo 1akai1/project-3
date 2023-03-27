@@ -2,7 +2,10 @@
     <div class='d-tag-bar '>
         <div class="d-tag-bar__content content">
             <div class="d-tag-bar__text">
-                <div :class="`d-tag-bar__text${index}`" v-for="tagItem, index in tag" :key="index">
+                <div 
+                :class="`d-tag-bar__text${index}`" 
+                v-for="tagItem, index in tag" 
+                :key="index">
                     #{{tagItem}}
                 </div>
             </div>

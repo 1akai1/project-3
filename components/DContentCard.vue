@@ -1,20 +1,37 @@
 <template>
     <div class="d-content-card content">
-        <div class="d-content-card__content" v-for="contentBox in contentSection" :key="contentBox">
-            <nuxt-link :to='contentBox?.url' class="d-content-card__title none">
-                {{contentBox?.name}} ->
+        <div 
+        class="d-content-card__content" 
+        v-for="contentBox in contentSection" 
+        :key="contentBox">
+            <nuxt-link 
+            :to='contentBox?.url' 
+            class="d-content-card__title none">
+                    {{contentBox?.name}} ->
             </nuxt-link>
-            <div class="d-content-card__box">
-                <article class="d-content-card__card" v-for="itemCard, index in contentBox?.articles" :key="index">
-                    <div class="d-content-card__card-box">
-                        <div class="d-content-card__image" :style="`background-image: url(${itemCard?.image?.url});`" />
-                        <div class="d-content-card__articles">
-                            <p class="d-content-card__title-articles">{{itemCard?.title}}</p>
-                            <div class="d-content-card__text" v-html='itemCard?.content'/>
+            <div 
+            v-if="contentBox.articles.length !== 0" 
+            class="d-content-card__box">
+                <article 
+                class="d-content-card__card" 
+                v-for="itemCard in contentBox?.articles" 
+                :key="itemCard">
+                    <nuxt-link 
+                    class="d-content-card__text" 
+                    :to="`post/${itemCard.url}`">
+                        <div class="d-content-card__card-box">
+                            <div 
+                                class="d-content-card__image" 
+                                :style="`background-image: url(${itemCard?.image?.url});`" />
+                            <div class="d-content-card__articles">
+                                    <p class="d-content-card__title-articles">{{itemCard?.title}}</p>
+                                    <div class="d-content-card__data" v-html='itemCard?.content'/>
+                            </div>
                         </div>
-                    </div>
+                    </nuxt-link>
                 </article>
             </div>
+            <div v-else >Пока статей нет =(</div>
         </div>
     </div>
 </template>
@@ -22,10 +39,10 @@
     const props = defineProps({
         contentSection: Array,
     })
-        // console.log(props.contentSection)
+        console.log(props.contentSection)
 
 </script>
-<style lang="sass" scoped>
+<style lang="sass">
     .d-content-card
         &__title
             margin-top: 20px
@@ -39,9 +56,10 @@
             gap: 20px
         &__card
             position: relative
+            display: block
             &::after
                 content: ''
-                height: 100%
+                height: 3px
                 width: 100%
                 position: absolute
                 bottom: 0
@@ -56,9 +74,9 @@
                 height: 300px
                 overflow: hidden
                 border-radius: 5px
-                -webkit-box-shadow: 0px 0px 20px -7px rgba(22, 28, 32, 0.57)
-                -moz-box-shadow: 0px 0px 20px -7px rgba(22, 28, 32, 0.57)
-                box-shadow: 0px 0px 20px -7px rgba(22, 28, 32, 0.57)
+                -webkit-box-shadow: 0px 0px 20px -7px rgba(22, 28, 32, 0.351)
+                -moz-box-shadow: 0px 0px 20px -7px rgba(22, 28, 32, 0.351)
+                box-shadow: 0px 0px 20px -7px rgba(22, 28, 32, 0.351)
                 overflow: hidden
             &:hover .d-content-card__image
                 height: 100px
@@ -74,8 +92,21 @@
             background-color: #fff
             height: 100%
         &__text
-            font-size: .9rem !important
+            color: #2c3e50
+            text-decoration: none
             font-family: OpenSans,Arial,sans-serif 
-            font-weight: 200 !important
-            text-decoration: none !important
+        &__data
+            h1
+                text-decoration: none
+                color: #000
+                font-weight: normal
+                font-size: .9rem
+            a, p, h2, h3, strong
+                text-decoration: none
+                color: #2c3e50
+                font-weight: lighter
+                font-size: .9rem
+            img
+                display: none
+
 </style>

@@ -2,12 +2,20 @@
     <main class="d-main-card">
         <div class="content">
             <div class="d-main-card__content">
-                <div class="d-main-card__card"  v-for="card, index in mainSection" :key="index">
-                    <!-- Поправить линк и добавить страницу с инфо -->
-                    <nuxt-link :to="`post/${String(card?.url)}`" class="d-main-card__image none d-main-card__hover"  :class="`id-${card?.category?.id}`" :style="`background-image: url(${card?.image?.url});`">
+                <div 
+                class="d-main-card__card"  
+                v-for="card, index in mainSection" 
+                :key="index">
+                    <nuxt-link 
+                        :to="`post/${String(card?.url)}`" 
+                        class="d-main-card__image none d-main-card__hover"  
+                        :class="`id-${card?.category?.id}`" 
+                        :style="`background-image: url(${card?.image?.url});`">
                         <div class="d-main-card__articles">
                             <p>{{card?.category?.name}}</p>
-                            <time>{{new Date(card?.updated_at).toLocaleString('ru', {day:'numeric', month:'long', year:'numeric'})}}</time>
+                            <time>
+                                {{new Date(card?.updated_at).toLocaleString('ru', {day:'numeric', month:'long', year:'numeric'})}}
+                            </time>
                         </div>
                         <div class="d-main-card__title hover">{{card?.title}}</div>
                     </nuxt-link>
