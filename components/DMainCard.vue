@@ -7,7 +7,7 @@
                 v-for="card, index in mainSection" 
                 :key="index">
                     <nuxt-link 
-                        :to="`post/${String(card?.url)}`" 
+                        :to="`/post/${String(card?.url)}`" 
                         class="d-main-card__image none d-main-card__hover"  
                         :class="`id-${card?.category?.id}`" 
                         :style="`background-image: url(${card?.image?.url});`">

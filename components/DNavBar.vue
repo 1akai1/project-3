@@ -19,14 +19,14 @@
                     <nuxt-link 
                     class="none" 
                     :class="`q-nav__image-${index}`" 
-                    :to="navMenu.url" 
+                    :to="`/${navMenu.url}`" 
                     v-for="navMenu, index in nav" :key="navMenu">
                         {{navMenu?.name}}
                     </nuxt-link>
                 </div>
                 <nuxt-link 
                 class="d-nav__in none" 
-                to="login" >
+                to="/login" >
                     <p>войти</p>
                 </nuxt-link>
             </div>

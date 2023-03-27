@@ -5,7 +5,7 @@
         v-for="contentBox in contentSection" 
         :key="contentBox">
             <nuxt-link 
-            :to='contentBox?.url' 
+            :to='`/${contentBox?.url}`' 
             class="d-content-card__title none">
                     {{contentBox?.name}} ->
             </nuxt-link>
@@ -18,7 +18,7 @@
                 :key="itemCard">
                     <nuxt-link 
                     class="d-content-card__text" 
-                    :to="`post/${itemCard.url}`">
+                    :to="`/post/${itemCard.url}`">
                         <div class="d-content-card__card-box">
                             <div 
                                 class="d-content-card__image" 
@@ -39,7 +39,9 @@
     const props = defineProps({
         contentSection: Array,
     })
-        console.log(props.contentSection)
+
+
+        // console.log(props.contentSection)
 
 </script>
 <style lang="sass">

@@ -12,7 +12,7 @@
         contentPage: Array
     })
 
-    console.log(props.contentPage[0])
+    // console.log(props.contentPage[0])
 </script>
 
 <style lang="sass">

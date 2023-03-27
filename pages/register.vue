@@ -1,7 +1,7 @@
 <template>
     <div>
         <form action="">
-            <nuxt-link to="login">Вход</nuxt-link>
+            <nuxt-link to="/login">Вход</nuxt-link>
             <h2>Регистрация</h2>
             <input type="text" placeholder="Логин">
             <input type="email" placeholder="E-mail">
